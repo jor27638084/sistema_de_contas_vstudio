@@ -1,0 +1,14 @@
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\bin\Debug\App_de_Contas.exe.config
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\bin\Debug\App_de_Contas.exe
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\bin\Debug\App_de_Contas.pdb
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.csprojAssemblyReference.cache
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.Properties.Resources.resources
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.rnprincipal.resources
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.csproj.GenerateResource.cache
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.csproj.CoreCompileInputs.cache
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.exe
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.pdb
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\bin\Debug\Contas.mdf
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\bin\Debug\Contas_log.ldf
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.cadastroCliente.resources
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.cadastroUsuario.resources
