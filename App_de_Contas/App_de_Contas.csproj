@@ -79,6 +79,16 @@
     <Compile Include="cadastroUsuario.Designer.cs">
       <DependentUpon>cadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContasDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ContasDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContasDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="contasPagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +136,28 @@
     <EmbeddedResource Include="rnprincipal.resx">
       <DependentUpon>rnprincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ContasDataSet.xsc">
+      <DependentUpon>ContasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ContasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ContasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ContasDataSet.xss">
+      <DependentUpon>ContasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ContasDataSet1.xsc">
+      <DependentUpon>ContasDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ContasDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ContasDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ContasDataSet1.xss">
+      <DependentUpon>ContasDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

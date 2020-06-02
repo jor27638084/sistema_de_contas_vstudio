@@ -12,3 +12,6 @@ C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\bin\Debug\Contas.md
 C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\bin\Debug\Contas_log.ldf
 C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.cadastroCliente.resources
 C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.cadastroUsuario.resources
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.cadastroFornecedores.resources
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.contasPagar.resources
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.contasReceber.resources

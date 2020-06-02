@@ -74,30 +74,35 @@
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
             this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
+            this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
             // contasAReceberToolStripMenuItem
             // 
             this.contasAReceberToolStripMenuItem.Name = "contasAReceberToolStripMenuItem";
             this.contasAReceberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contasAReceberToolStripMenuItem.Text = "Contas a receber";
+            this.contasAReceberToolStripMenuItem.Click += new System.EventHandler(this.contasAReceberToolStripMenuItem_Click);
             // 
             // contasAPagarToolStripMenuItem
             // 
             this.contasAPagarToolStripMenuItem.Name = "contasAPagarToolStripMenuItem";
             this.contasAPagarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contasAPagarToolStripMenuItem.Text = "Contas a pagar";
+            this.contasAPagarToolStripMenuItem.Click += new System.EventHandler(this.contasAPagarToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -114,31 +119,31 @@
             // usuariosToolStripMenuItem1
             // 
             this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
-            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.usuariosToolStripMenuItem1.Text = "Usuarios";
             // 
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.clientesToolStripMenuItem1.Text = "Clientes";
             // 
             // fornecedoresToolStripMenuItem1
             // 
             this.fornecedoresToolStripMenuItem1.Name = "fornecedoresToolStripMenuItem1";
-            this.fornecedoresToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.fornecedoresToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.fornecedoresToolStripMenuItem1.Text = "Fornecedores";
             // 
             // contasAReceberToolStripMenuItem1
             // 
             this.contasAReceberToolStripMenuItem1.Name = "contasAReceberToolStripMenuItem1";
-            this.contasAReceberToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.contasAReceberToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.contasAReceberToolStripMenuItem1.Text = "Contas a receber";
             // 
             // contasAPagarToolStripMenuItem1
             // 
             this.contasAPagarToolStripMenuItem1.Name = "contasAPagarToolStripMenuItem1";
-            this.contasAPagarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.contasAPagarToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.contasAPagarToolStripMenuItem1.Text = "Contas a pagar";
             // 
             // sairToolStripMenuItem
