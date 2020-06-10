@@ -16,7 +16,7 @@ namespace App_de_Contas
         {
             cd_nota.Enabled = false;
             nm_nota.Enabled = true;
-            id_fornecedor.Enabled = true;
+            nm_fornecedor.Enabled = true;
             dt_emissao.Enabled = true;
             dt_vencimento.Enabled = true;
             vl_nota.Enabled = true;
@@ -38,7 +38,7 @@ namespace App_de_Contas
         {
             cd_nota.Enabled = false;
             nm_nota.Enabled = false;
-            id_fornecedor.Enabled = false;
+            nm_fornecedor.Enabled = false;
             dt_emissao.Enabled = false;
             dt_vencimento.Enabled = false;
             vl_nota.Enabled = false;
@@ -66,6 +66,8 @@ namespace App_de_Contas
 
         private void contasPagar_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'contasDataSet.tb_fornecedores'. Você pode movê-la ou removê-la conforme necessário.
+            this.tb_fornecedoresTableAdapter.Fill(this.contasDataSet.tb_fornecedores);
             // TODO: esta linha de código carrega dados na tabela 'contasDataSet.tb_contas_pagar'. Você pode movê-la ou removê-la conforme necessário.
             this.tb_contas_pagarTableAdapter.Fill(this.contasDataSet.tb_contas_pagar);
             Desabilita();

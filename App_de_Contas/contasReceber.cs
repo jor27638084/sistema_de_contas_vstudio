@@ -16,7 +16,7 @@ namespace App_de_Contas
         {
             cd_notaCliente.Enabled = false;
             nm_notaCliente.Enabled = true;
-            id_notaCliente.Enabled = true;
+            nm_Cliente.Enabled = true;
             dt_emissao.Enabled = true;
             dt_vencimento.Enabled = true;
             vl_notaCliente.Enabled = true;
@@ -38,7 +38,7 @@ namespace App_de_Contas
         {
             cd_notaCliente.Enabled = false;
             nm_notaCliente.Enabled = false;
-            id_notaCliente.Enabled = false;
+            nm_Cliente.Enabled = false;
             dt_emissao.Enabled = false;
             dt_vencimento.Enabled = false;
             vl_notaCliente.Enabled = false;
@@ -71,6 +71,8 @@ namespace App_de_Contas
 
         private void contasReceber_Load(object sender, EventArgs e)
         {
+            // TODO: esta linha de código carrega dados na tabela 'contasDataSet.tb_clientes'. Você pode movê-la ou removê-la conforme necessário.
+            this.tb_clientesTableAdapter.Fill(this.contasDataSet.tb_clientes);
             // TODO: esta linha de código carrega dados na tabela 'contasDataSet.tb_contas_receber'. Você pode movê-la ou removê-la conforme necessário.
             this.tb_contas_receberTableAdapter.Fill(this.contasDataSet.tb_contas_receber);
             Desabilita();
