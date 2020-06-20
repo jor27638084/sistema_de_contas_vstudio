@@ -14,6 +14,8 @@ namespace App_de_Contas
     
     public partial class cadastroUsuario : Form
     {
+        public static int codigo;
+
         private void Habilita()
         {
             cd_usuario.Enabled = false;
@@ -108,14 +110,7 @@ namespace App_de_Contas
 
         private void dadosToolStripButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                this.tb_usuarioTableAdapter.dados(this.contasDataSet1.tb_usuario);
-            }
-            catch (System.Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
+           
 
         }
 
@@ -126,7 +121,15 @@ namespace App_de_Contas
 
         private void btn_pesquisar_Click(object sender, EventArgs e)
         {
-            
+            int ponteiro;
+            codigo = 0;
+            form_pesquisa_usuario fpu = new form_pesquisa_usuario();
+            fpu.ShowDialog();
+            if(codigo != 0)
+            {
+                ponteiro = bindingSource1.Find("cd_usuario", codigo);
+                bindingSource1.Position = ponteiro;
+            }
         }
 
         private void btn_alterar_Click(object sender, EventArgs e)

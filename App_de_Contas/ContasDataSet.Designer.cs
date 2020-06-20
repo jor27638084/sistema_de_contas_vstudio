@@ -4208,13 +4208,20 @@ SELECT cd_cliente, nm_cliente, ds_endereco, nm_bairro, nm_cidade, sg_estado, cd_
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT cd_cliente, nm_cliente, ds_endereco, nm_bairro, nm_cidade, sg_estado, cd_c" +
                 "ep, ds_telefone, nm_contato, cd_cnpj, cd_ie, cd_cof, cd_rg, ds_email, sg_tipocli" +
                 "ente FROM dbo.tb_clientes";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT cd_cliente, nm_cliente, ds_endereco, nm_bairro, nm_cidade, sg_estado, cd_c" +
+                "ep, ds_telefone, nm_contato, cd_cnpj, cd_ie, cd_cof, cd_rg, ds_email, sg_tipocli" +
+                "ente FROM dbo.tb_clientes\r\nWHERE nm_cliente LIKE @cd_cliente";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cd_cliente", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "nm_cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4236,6 +4243,42 @@ SELECT cd_cliente, nm_cliente, ds_endereco, nm_bairro, nm_cidade, sg_estado, cd_
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual ContasDataSet.tb_clientesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            ContasDataSet.tb_clientesDataTable dataTable = new ContasDataSet.tb_clientesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillName(ContasDataSet.tb_clientesDataTable dataTable, string cd_cliente) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cd_cliente == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cd_cliente));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual ContasDataSet.tb_clientesDataTable GetDataName(string cd_cliente) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cd_cliente == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cd_cliente));
+            }
             ContasDataSet.tb_clientesDataTable dataTable = new ContasDataSet.tb_clientesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -5541,13 +5584,21 @@ SELECT cd_fornecedor, nm_fornecedor, ds_endereco, nm_bairro, nm_cidade, sg_estad
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT cd_fornecedor, nm_fornecedor, ds_endereco, nm_bairro, nm_cidade, sg_estado" +
                 ", cd_cep, ds_telefone, nm_contato, cd_cnpj, cd_ie, cd_cof, [cd_rg ], ds_email, s" +
                 "g_tipofornecedor FROM dbo.tb_fornecedores";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT cd_fornecedor, nm_fornecedor, ds_endereco, nm_bairro, nm_cidade, sg_estado" +
+                ", cd_cep, ds_telefone, nm_contato, cd_cnpj, cd_ie, cd_cof, [cd_rg ], ds_email, s" +
+                "g_tipofornecedor FROM dbo.tb_fornecedores\r\nWHERE nm_fornecedor LIKE @cd_forneced" +
+                "or";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cd_fornecedor", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "nm_fornecedor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5569,6 +5620,42 @@ SELECT cd_fornecedor, nm_fornecedor, ds_endereco, nm_bairro, nm_cidade, sg_estad
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual ContasDataSet.tb_fornecedoresDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            ContasDataSet.tb_fornecedoresDataTable dataTable = new ContasDataSet.tb_fornecedoresDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillName(ContasDataSet.tb_fornecedoresDataTable dataTable, string cd_fornecedor) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cd_fornecedor == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cd_fornecedor));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual ContasDataSet.tb_fornecedoresDataTable GetDataName(string cd_fornecedor) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cd_fornecedor == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cd_fornecedor));
+            }
             ContasDataSet.tb_fornecedoresDataTable dataTable = new ContasDataSet.tb_fornecedoresDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -6318,8 +6405,10 @@ SELECT CD_USUARIO, NM_USUARIO, SG_NIVEL, NM_LOGIN, CD_SENHA FROM tb_usuario WHER
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT CD_USUARIO, NM_USUARIO, SG_NIVEL, NM_LOGIN, CD_SENHA FROM dbo.tb_usuario";
+            this._commandCollection[1].CommandText = "SELECT CD_USUARIO, NM_USUARIO, SG_NIVEL, NM_LOGIN, CD_SENHA FROM dbo.tb_usuario\r\n" +
+                "WHERE NM_USUARIO LIKE @cd_usuario";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cd_usuario", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "NM_USUARIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6350,13 +6439,36 @@ SELECT CD_USUARIO, NM_USUARIO, SG_NIVEL, NM_LOGIN, CD_SENHA FROM tb_usuario WHER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int dados(ContasDataSet.tb_usuarioDataTable dataTable) {
+        public virtual int FillName(ContasDataSet.tb_usuarioDataTable dataTable, string cd_usuario) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cd_usuario == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cd_usuario));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual ContasDataSet.tb_usuarioDataTable GetDataName(string cd_usuario) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((cd_usuario == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(cd_usuario));
+            }
+            ContasDataSet.tb_usuarioDataTable dataTable = new ContasDataSet.tb_usuarioDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

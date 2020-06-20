@@ -12,6 +12,7 @@ namespace App_de_Contas
 {
     public partial class cadastroCliente : Form
     {
+        public static int codigo_cliente;
         private void Habilita()
         {
             cep_cliente.Enabled = true;
@@ -120,6 +121,19 @@ namespace App_de_Contas
         private void btn_alterar_Click(object sender, EventArgs e)
         {
             Habilita();
+        }
+
+        private void btn_pesquisar_Click(object sender, EventArgs e)
+        {
+            int ponteiro;
+            codigo_cliente = 0;
+            form_pesquisa_clientes fpc = new form_pesquisa_clientes();
+            fpc.ShowDialog();
+            if(codigo_cliente != 0)
+            {
+                ponteiro = bindingSource1.Find("cd_cliente", codigo_cliente);
+                bindingSource1.Position = ponteiro;
+            }
         }
     }
 }

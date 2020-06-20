@@ -79,6 +79,9 @@
     <Compile Include="cadastroUsuario.Designer.cs">
       <DependentUpon>cadastroUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContasDataSet.cs">
+      <DependentUpon>ContasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ContasDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +103,24 @@
     </Compile>
     <Compile Include="contasReceber.Designer.cs">
       <DependentUpon>contasReceber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_pesquisa_clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_pesquisa_clientes.Designer.cs">
+      <DependentUpon>form_pesquisa_clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_pesquisa_fornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_pesquisa_fornecedores.Designer.cs">
+      <DependentUpon>form_pesquisa_fornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_pesquisa_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_pesquisa_usuario.Designer.cs">
+      <DependentUpon>form_pesquisa_usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="rnprincipal.cs">
       <SubType>Form</SubType>
@@ -123,6 +144,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="contasReceber.resx">
       <DependentUpon>contasReceber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_pesquisa_clientes.resx">
+      <DependentUpon>form_pesquisa_clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_pesquisa_fornecedores.resx">
+      <DependentUpon>form_pesquisa_fornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_pesquisa_usuario.resx">
+      <DependentUpon>form_pesquisa_usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

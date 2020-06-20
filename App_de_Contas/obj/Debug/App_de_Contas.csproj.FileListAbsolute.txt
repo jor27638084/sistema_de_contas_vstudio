@@ -15,3 +15,6 @@ C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Co
 C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.cadastroFornecedores.resources
 C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.contasPagar.resources
 C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.contasReceber.resources
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.form_pesquisa_usuario.resources
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.form_pesquisa_fornecedores.resources
+C:\Users\Jorge Luiz\source\repos\App_de_Contas\App_de_Contas\obj\Debug\App_de_Contas.form_pesquisa_clientes.resources

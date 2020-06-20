@@ -12,6 +12,7 @@ namespace App_de_Contas
 {
     public partial class cadastroFornecedores : Form
     {
+        public static int codigo_forn;
         private void Habilita()
         {
             cd_fornecedor.Enabled = false;
@@ -120,6 +121,18 @@ namespace App_de_Contas
         private void btn_alterar_Click(object sender, EventArgs e)
         {
             Habilita();
+        }
+
+        private void btn_pesquisar_Click(object sender, EventArgs e)
+        {
+            int ponteiro = 0;
+            form_pesquisa_fornecedores fpf = new form_pesquisa_fornecedores();
+            fpf.ShowDialog();
+            if(codigo_forn != 0)
+            {
+                ponteiro = bindingSource1.Find("cd_fornecedor", codigo_forn);
+                bindingSource1.Position = ponteiro;
+            }
         }
     }
 }
