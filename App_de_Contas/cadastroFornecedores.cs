@@ -134,5 +134,44 @@ namespace App_de_Contas
                 bindingSource1.Position = ponteiro;
             }
         }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void impressaoDados_fornecedor_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Graphics objtImpressao = e.Graphics;
+            string strDados;
+
+            strDados = "Ficha Dados do Fornecedor" + (char)10 + (char)10;
+            objtImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Red, 50, 50);
+
+            objtImpressao.DrawLine(new System.Drawing.Pen(Brushes.Black), 50, 100, 780, 100);
+
+            strDados = "Código: " + cd_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "Nome: " + nm_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "Rua: " + address_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "Bairro: " + bairro_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "Cidade: " + cidade_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "Estado: " + uf_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "Telefone: " + tel_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "Contato de referência: " + ref_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "CNPJ: " + cnpj_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "IE: " + ie_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "COF: " + cof_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "RG: " + rg_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "E-mail: " + email_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "Tipo de Fornecedor: " + tp_fornecedor.Text + (char)10 + (char)10;
+
+            objtImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Black, 50, 150);
+
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

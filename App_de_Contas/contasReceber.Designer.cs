@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(contasReceber));
             this.btn_sair = new System.Windows.Forms.Button();
             this.btn_imprimir = new System.Windows.Forms.Button();
             this.btn_pesquisar = new System.Windows.Forms.Button();
@@ -50,6 +51,7 @@
             this.dt_vencimento = new System.Windows.Forms.TextBox();
             this.dt_emissao = new System.Windows.Forms.TextBox();
             this.nm_Cliente = new System.Windows.Forms.TextBox();
+            this.tb_clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cd_notaCliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,8 +60,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tb_contas_receberTableAdapter = new App_de_Contas.ContasDataSetTableAdapters.tb_contas_receberTableAdapter();
             this.tableAdapterManager = new App_de_Contas.ContasDataSetTableAdapters.TableAdapterManager();
-            this.tb_clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tb_clientesTableAdapter = new App_de_Contas.ContasDataSetTableAdapters.tb_clientesTableAdapter();
+            this.impressaso_contasreceber = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tb_contas_receberBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contasDataSet)).BeginInit();
@@ -69,7 +72,7 @@
             // btn_sair
             // 
             this.btn_sair.Location = new System.Drawing.Point(776, 421);
-            this.btn_sair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_sair.Margin = new System.Windows.Forms.Padding(4);
             this.btn_sair.Name = "btn_sair";
             this.btn_sair.Size = new System.Drawing.Size(127, 28);
             this.btn_sair.TabIndex = 22;
@@ -80,17 +83,18 @@
             // btn_imprimir
             // 
             this.btn_imprimir.Location = new System.Drawing.Point(607, 421);
-            this.btn_imprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_imprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.Size = new System.Drawing.Size(127, 28);
             this.btn_imprimir.TabIndex = 21;
             this.btn_imprimir.Text = "Imprimir";
             this.btn_imprimir.UseVisualStyleBackColor = true;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
             // btn_pesquisar
             // 
             this.btn_pesquisar.Location = new System.Drawing.Point(444, 421);
-            this.btn_pesquisar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_pesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_pesquisar.Name = "btn_pesquisar";
             this.btn_pesquisar.Size = new System.Drawing.Size(127, 28);
             this.btn_pesquisar.TabIndex = 20;
@@ -100,7 +104,7 @@
             // btn_cancelar
             // 
             this.btn_cancelar.Location = new System.Drawing.Point(279, 421);
-            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(127, 28);
             this.btn_cancelar.TabIndex = 19;
@@ -111,7 +115,7 @@
             // btn_salvar
             // 
             this.btn_salvar.Location = new System.Drawing.Point(108, 421);
-            this.btn_salvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_salvar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_salvar.Name = "btn_salvar";
             this.btn_salvar.Size = new System.Drawing.Size(127, 28);
             this.btn_salvar.TabIndex = 18;
@@ -122,7 +126,7 @@
             // btn_excluir
             // 
             this.btn_excluir.Location = new System.Drawing.Point(776, 367);
-            this.btn_excluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_excluir.Margin = new System.Windows.Forms.Padding(4);
             this.btn_excluir.Name = "btn_excluir";
             this.btn_excluir.Size = new System.Drawing.Size(127, 28);
             this.btn_excluir.TabIndex = 17;
@@ -132,7 +136,7 @@
             // btn_alterar
             // 
             this.btn_alterar.Location = new System.Drawing.Point(607, 367);
-            this.btn_alterar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_alterar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_alterar.Name = "btn_alterar";
             this.btn_alterar.Size = new System.Drawing.Size(127, 28);
             this.btn_alterar.TabIndex = 16;
@@ -143,7 +147,7 @@
             // btn_novo
             // 
             this.btn_novo.Location = new System.Drawing.Point(444, 367);
-            this.btn_novo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_novo.Margin = new System.Windows.Forms.Padding(4);
             this.btn_novo.Name = "btn_novo";
             this.btn_novo.Size = new System.Drawing.Size(127, 28);
             this.btn_novo.TabIndex = 15;
@@ -154,7 +158,7 @@
             // btn_proximo
             // 
             this.btn_proximo.Location = new System.Drawing.Point(279, 367);
-            this.btn_proximo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_proximo.Margin = new System.Windows.Forms.Padding(4);
             this.btn_proximo.Name = "btn_proximo";
             this.btn_proximo.Size = new System.Drawing.Size(127, 28);
             this.btn_proximo.TabIndex = 14;
@@ -165,7 +169,7 @@
             // btn_anterior
             // 
             this.btn_anterior.Location = new System.Drawing.Point(108, 367);
-            this.btn_anterior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_anterior.Margin = new System.Windows.Forms.Padding(4);
             this.btn_anterior.Name = "btn_anterior";
             this.btn_anterior.Size = new System.Drawing.Size(127, 28);
             this.btn_anterior.TabIndex = 13;
@@ -191,9 +195,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(55, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(953, 319);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -205,7 +209,7 @@
             this.dt_pagamento.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.dt_pagamento.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tb_contas_receberBindingSource, "dt_pagamento", true));
             this.dt_pagamento.Location = new System.Drawing.Point(212, 244);
-            this.dt_pagamento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dt_pagamento.Margin = new System.Windows.Forms.Padding(4);
             this.dt_pagamento.Name = "dt_pagamento";
             this.dt_pagamento.Size = new System.Drawing.Size(291, 30);
             this.dt_pagamento.TabIndex = 14;
@@ -236,7 +240,7 @@
             this.nm_notaCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.nm_notaCliente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tb_contas_receberBindingSource, "nm_documento", true));
             this.nm_notaCliente.Location = new System.Drawing.Point(180, 81);
-            this.nm_notaCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nm_notaCliente.Margin = new System.Windows.Forms.Padding(4);
             this.nm_notaCliente.Name = "nm_notaCliente";
             this.nm_notaCliente.Size = new System.Drawing.Size(177, 30);
             this.nm_notaCliente.TabIndex = 4;
@@ -257,7 +261,7 @@
             this.vl_notaCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.vl_notaCliente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tb_contas_receberBindingSource, "vl_documento", true));
             this.vl_notaCliente.Location = new System.Drawing.Point(212, 203);
-            this.vl_notaCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.vl_notaCliente.Margin = new System.Windows.Forms.Padding(4);
             this.vl_notaCliente.Name = "vl_notaCliente";
             this.vl_notaCliente.Size = new System.Drawing.Size(291, 30);
             this.vl_notaCliente.TabIndex = 12;
@@ -267,7 +271,7 @@
             this.dt_vencimento.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.dt_vencimento.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tb_contas_receberBindingSource, "dt_vencimento", true));
             this.dt_vencimento.Location = new System.Drawing.Point(617, 167);
-            this.dt_vencimento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dt_vencimento.Margin = new System.Windows.Forms.Padding(4);
             this.dt_vencimento.Name = "dt_vencimento";
             this.dt_vencimento.Size = new System.Drawing.Size(253, 30);
             this.dt_vencimento.TabIndex = 10;
@@ -277,7 +281,7 @@
             this.dt_emissao.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.dt_emissao.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tb_contas_receberBindingSource, "dt_emissao", true));
             this.dt_emissao.Location = new System.Drawing.Point(180, 162);
-            this.dt_emissao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dt_emissao.Margin = new System.Windows.Forms.Padding(4);
             this.dt_emissao.Name = "dt_emissao";
             this.dt_emissao.Size = new System.Drawing.Size(253, 30);
             this.dt_emissao.TabIndex = 8;
@@ -287,17 +291,22 @@
             this.nm_Cliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.nm_Cliente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tb_clientesBindingSource, "nm_cliente", true));
             this.nm_Cliente.Location = new System.Drawing.Point(180, 122);
-            this.nm_Cliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nm_Cliente.Margin = new System.Windows.Forms.Padding(4);
             this.nm_Cliente.Name = "nm_Cliente";
             this.nm_Cliente.Size = new System.Drawing.Size(740, 30);
             this.nm_Cliente.TabIndex = 6;
+            // 
+            // tb_clientesBindingSource
+            // 
+            this.tb_clientesBindingSource.DataMember = "tb_clientes";
+            this.tb_clientesBindingSource.DataSource = this.contasDataSet;
             // 
             // cd_notaCliente
             // 
             this.cd_notaCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cd_notaCliente.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tb_contas_receberBindingSource, "cd_contas_receber", true));
             this.cd_notaCliente.Location = new System.Drawing.Point(180, 41);
-            this.cd_notaCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cd_notaCliente.Margin = new System.Windows.Forms.Padding(4);
             this.cd_notaCliente.Name = "cd_notaCliente";
             this.cd_notaCliente.Size = new System.Drawing.Size(177, 30);
             this.cd_notaCliente.TabIndex = 2;
@@ -371,14 +380,24 @@
             this.tableAdapterManager.tb_usuarioTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = App_de_Contas.ContasDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // tb_clientesBindingSource
-            // 
-            this.tb_clientesBindingSource.DataMember = "tb_clientes";
-            this.tb_clientesBindingSource.DataSource = this.contasDataSet;
-            // 
             // tb_clientesTableAdapter
             // 
             this.tb_clientesTableAdapter.ClearBeforeFill = true;
+            // 
+            // impressaso_contasreceber
+            // 
+            this.impressaso_contasreceber.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.impressaso_contasreceber_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.impressaso_contasreceber;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // contasReceber
             // 
@@ -397,7 +416,7 @@
             this.Controls.Add(this.btn_proximo);
             this.Controls.Add(this.btn_anterior);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "contasReceber";
             this.Text = "Contas a Receber";
             this.Load += new System.EventHandler(this.contasReceber_Load);
@@ -443,5 +462,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.BindingSource tb_clientesBindingSource;
         private ContasDataSetTableAdapters.tb_clientesTableAdapter tb_clientesTableAdapter;
+        private System.Drawing.Printing.PrintDocument impressaso_contasreceber;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

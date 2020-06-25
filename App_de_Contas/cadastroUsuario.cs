@@ -136,5 +136,33 @@ namespace App_de_Contas
         {
             Habilita();
         }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void impressaoDados_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Graphics objtImpressao = e.Graphics;
+            string strDados;
+
+            strDados = "Ficha de Usuário" + (char)10 + (char)10;
+            objtImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Red, 50, 50);
+
+            objtImpressao.DrawLine(new System.Drawing.Pen(Brushes.Black), 50, 100, 780, 100);
+
+            strDados = "Código: " + cd_usuario.Text + (char)10 + (char)10;
+            strDados = strDados + "Nome: " + nm_usuario.Text + (char)10 + (char)10;
+            strDados = strDados + "Nível: " + nivel_usuario.Text + (char)10 + (char)10;
+            strDados = strDados + "Login: " + login_usuario.Text + (char)10 + (char)10;
+
+            objtImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Black, 50, 250);
+        }
+
+        private void login_usuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

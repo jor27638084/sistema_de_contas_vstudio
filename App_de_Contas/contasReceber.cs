@@ -112,5 +112,33 @@ namespace App_de_Contas
         {
             tb_contas_receberBindingSource.MoveNext();
         }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void impressaso_contasreceber_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Graphics objtImpressao = e.Graphics;
+            string strDados;
+
+            strDados = "Conta a Receber" + (char)10 + (char)10;
+            objtImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Red, 50, 50);
+
+            objtImpressao.DrawLine(new System.Drawing.Pen(Brushes.Black), 50, 100, 780, 100);
+
+            strDados = "Código: " + cd_notaCliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Nº da Nota: " + nm_notaCliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Nome do Clente: " + nm_Cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Data de Emissão: " + dt_emissao.Text + (char)10 + (char)10;
+            strDados = strDados + "Data de Vencimento: " + dt_vencimento + (char)10 + (char)10;
+            strDados = strDados + "Valor da Nota: " + vl_notaCliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Data do Pagamento: " + dt_pagamento.Text + (char)10 + (char)10;
+
+            objtImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Black, 50, 150);
+
+
+        }
     }
 }

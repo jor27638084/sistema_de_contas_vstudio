@@ -135,5 +135,50 @@ namespace App_de_Contas
                 bindingSource1.Position = ponteiro;
             }
         }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void impressaoDados_cliente_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Graphics objtImpressao = e.Graphics;
+            string strDados;
+
+            strDados = "Ficha do Cliente" + (char)10 + (char)10;
+            objtImpressao.DrawString ( strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Red, 50, 50);
+            objtImpressao.DrawLine(new System.Drawing.Pen(Brushes.Black), 50, 100, 780, 100);
+
+            strDados = "Código: " + cd_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Nome: " + nm_cliente.Text + (char)10 + (char)10;
+
+            strDados = strDados + "Rua: " + address_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Bairro: " + bairro_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Cidade: " + cidade_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Estado: " + uf_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Telefone: " + tel_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Contato de Referência: " + ref_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "CNPJ: " + cnpj_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "IE: " + ie_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "COF: " + cof_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "RG: " + rg_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "E-mail: " + email_cliente.Text + (char)10 + (char)10;
+            strDados = strDados + "Tipo de Cliente: " + tp_cliente.Text + (char)10 + (char)10;
+
+            objtImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Black, 50, 150);
+
+
+        }
+
+        private void cd_cliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.ShowDialog();
+        }
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cadastroFornecedores));
             this.btn_sair = new System.Windows.Forms.Button();
             this.btn_imprimir = new System.Windows.Forms.Button();
             this.btn_pesquisar = new System.Windows.Forms.Button();
@@ -73,6 +74,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_fornecedoresTableAdapter = new App_de_Contas.ContasDataSetTableAdapters.tb_fornecedoresTableAdapter();
+            this.impressaoDados_fornecedor = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contasDataSet1)).BeginInit();
@@ -81,7 +84,7 @@
             // btn_sair
             // 
             this.btn_sair.Location = new System.Drawing.Point(801, 630);
-            this.btn_sair.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_sair.Margin = new System.Windows.Forms.Padding(4);
             this.btn_sair.Name = "btn_sair";
             this.btn_sair.Size = new System.Drawing.Size(127, 28);
             this.btn_sair.TabIndex = 40;
@@ -92,17 +95,18 @@
             // btn_imprimir
             // 
             this.btn_imprimir.Location = new System.Drawing.Point(632, 630);
-            this.btn_imprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_imprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.Size = new System.Drawing.Size(127, 28);
             this.btn_imprimir.TabIndex = 39;
             this.btn_imprimir.Text = "Imprimir";
             this.btn_imprimir.UseVisualStyleBackColor = true;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
             // btn_pesquisar
             // 
             this.btn_pesquisar.Location = new System.Drawing.Point(469, 630);
-            this.btn_pesquisar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_pesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_pesquisar.Name = "btn_pesquisar";
             this.btn_pesquisar.Size = new System.Drawing.Size(127, 28);
             this.btn_pesquisar.TabIndex = 38;
@@ -113,7 +117,7 @@
             // btn_cancelar
             // 
             this.btn_cancelar.Location = new System.Drawing.Point(304, 630);
-            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_cancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(127, 28);
             this.btn_cancelar.TabIndex = 37;
@@ -124,7 +128,7 @@
             // btn_salvar
             // 
             this.btn_salvar.Location = new System.Drawing.Point(133, 630);
-            this.btn_salvar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_salvar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_salvar.Name = "btn_salvar";
             this.btn_salvar.Size = new System.Drawing.Size(127, 28);
             this.btn_salvar.TabIndex = 36;
@@ -135,7 +139,7 @@
             // btn_excluir
             // 
             this.btn_excluir.Location = new System.Drawing.Point(801, 576);
-            this.btn_excluir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_excluir.Margin = new System.Windows.Forms.Padding(4);
             this.btn_excluir.Name = "btn_excluir";
             this.btn_excluir.Size = new System.Drawing.Size(127, 28);
             this.btn_excluir.TabIndex = 35;
@@ -145,7 +149,7 @@
             // btn_alterar
             // 
             this.btn_alterar.Location = new System.Drawing.Point(632, 576);
-            this.btn_alterar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_alterar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_alterar.Name = "btn_alterar";
             this.btn_alterar.Size = new System.Drawing.Size(127, 28);
             this.btn_alterar.TabIndex = 34;
@@ -156,7 +160,7 @@
             // btn_novo
             // 
             this.btn_novo.Location = new System.Drawing.Point(469, 576);
-            this.btn_novo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_novo.Margin = new System.Windows.Forms.Padding(4);
             this.btn_novo.Name = "btn_novo";
             this.btn_novo.Size = new System.Drawing.Size(127, 28);
             this.btn_novo.TabIndex = 33;
@@ -167,7 +171,7 @@
             // btn_proximo
             // 
             this.btn_proximo.Location = new System.Drawing.Point(304, 576);
-            this.btn_proximo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_proximo.Margin = new System.Windows.Forms.Padding(4);
             this.btn_proximo.Name = "btn_proximo";
             this.btn_proximo.Size = new System.Drawing.Size(127, 28);
             this.btn_proximo.TabIndex = 32;
@@ -178,7 +182,7 @@
             // btn_anterior
             // 
             this.btn_anterior.Location = new System.Drawing.Point(133, 576);
-            this.btn_anterior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_anterior.Margin = new System.Windows.Forms.Padding(4);
             this.btn_anterior.Name = "btn_anterior";
             this.btn_anterior.Size = new System.Drawing.Size(127, 28);
             this.btn_anterior.TabIndex = 31;
@@ -220,9 +224,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(35, 15);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(953, 554);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -233,7 +237,7 @@
             this.tp_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tp_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "sg_tipofornecedor", true));
             this.tp_fornecedor.Location = new System.Drawing.Point(220, 505);
-            this.tp_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tp_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.tp_fornecedor.Name = "tp_fornecedor";
             this.tp_fornecedor.Size = new System.Drawing.Size(331, 30);
             this.tp_fornecedor.TabIndex = 30;
@@ -264,7 +268,7 @@
             this.email_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.email_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "ds_email", true));
             this.email_fornecedor.Location = new System.Drawing.Point(180, 465);
-            this.email_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.email_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.email_fornecedor.Name = "email_fornecedor";
             this.email_fornecedor.Size = new System.Drawing.Size(740, 30);
             this.email_fornecedor.TabIndex = 28;
@@ -285,7 +289,7 @@
             this.rg_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.rg_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "cd_rg ", true));
             this.rg_fornecedor.Location = new System.Drawing.Point(597, 426);
-            this.rg_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rg_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.rg_fornecedor.Name = "rg_fornecedor";
             this.rg_fornecedor.Size = new System.Drawing.Size(323, 30);
             this.rg_fornecedor.TabIndex = 26;
@@ -306,7 +310,7 @@
             this.cof_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cof_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "cd_cof", true));
             this.cof_fornecedor.Location = new System.Drawing.Point(180, 422);
-            this.cof_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cof_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.cof_fornecedor.Name = "cof_fornecedor";
             this.cof_fornecedor.Size = new System.Drawing.Size(331, 30);
             this.cof_fornecedor.TabIndex = 24;
@@ -327,7 +331,7 @@
             this.ie_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ie_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "cd_ie", true));
             this.ie_fornecedor.Location = new System.Drawing.Point(597, 383);
-            this.ie_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ie_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.ie_fornecedor.Name = "ie_fornecedor";
             this.ie_fornecedor.Size = new System.Drawing.Size(323, 30);
             this.ie_fornecedor.TabIndex = 22;
@@ -348,7 +352,7 @@
             this.cnpj_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cnpj_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "cd_cnpj", true));
             this.cnpj_fornecedor.Location = new System.Drawing.Point(180, 379);
-            this.cnpj_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cnpj_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.cnpj_fornecedor.Name = "cnpj_fornecedor";
             this.cnpj_fornecedor.Size = new System.Drawing.Size(331, 30);
             this.cnpj_fornecedor.TabIndex = 20;
@@ -369,7 +373,7 @@
             this.ref_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ref_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "nm_contato", true));
             this.ref_fornecedor.Location = new System.Drawing.Point(220, 340);
-            this.ref_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ref_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.ref_fornecedor.Name = "ref_fornecedor";
             this.ref_fornecedor.Size = new System.Drawing.Size(700, 30);
             this.ref_fornecedor.TabIndex = 18;
@@ -390,7 +394,7 @@
             this.tel_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tel_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "ds_telefone", true));
             this.tel_fornecedor.Location = new System.Drawing.Point(180, 300);
-            this.tel_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tel_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.tel_fornecedor.Name = "tel_fornecedor";
             this.tel_fornecedor.Size = new System.Drawing.Size(740, 30);
             this.tel_fornecedor.TabIndex = 16;
@@ -411,7 +415,7 @@
             this.cep_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cep_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "cd_cep", true));
             this.cep_fornecedor.Location = new System.Drawing.Point(475, 261);
-            this.cep_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cep_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.cep_fornecedor.Name = "cep_fornecedor";
             this.cep_fornecedor.Size = new System.Drawing.Size(445, 30);
             this.cep_fornecedor.TabIndex = 14;
@@ -432,7 +436,7 @@
             this.uf_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.uf_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "sg_estado", true));
             this.uf_fornecedor.Location = new System.Drawing.Point(180, 257);
-            this.uf_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uf_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.uf_fornecedor.Name = "uf_fornecedor";
             this.uf_fornecedor.Size = new System.Drawing.Size(160, 30);
             this.uf_fornecedor.TabIndex = 12;
@@ -453,7 +457,7 @@
             this.cidade_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cidade_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "nm_cidade", true));
             this.cidade_fornecedor.Location = new System.Drawing.Point(180, 218);
-            this.cidade_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cidade_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.cidade_fornecedor.Name = "cidade_fornecedor";
             this.cidade_fornecedor.Size = new System.Drawing.Size(740, 30);
             this.cidade_fornecedor.TabIndex = 10;
@@ -463,7 +467,7 @@
             this.bairro_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.bairro_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "nm_bairro", true));
             this.bairro_fornecedor.Location = new System.Drawing.Point(180, 174);
-            this.bairro_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bairro_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.bairro_fornecedor.Name = "bairro_fornecedor";
             this.bairro_fornecedor.Size = new System.Drawing.Size(740, 30);
             this.bairro_fornecedor.TabIndex = 8;
@@ -473,7 +477,7 @@
             this.address_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.address_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "ds_endereco", true));
             this.address_fornecedor.Location = new System.Drawing.Point(180, 129);
-            this.address_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.address_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.address_fornecedor.Name = "address_fornecedor";
             this.address_fornecedor.Size = new System.Drawing.Size(740, 30);
             this.address_fornecedor.TabIndex = 6;
@@ -483,7 +487,7 @@
             this.nm_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.nm_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "nm_fornecedor", true));
             this.nm_fornecedor.Location = new System.Drawing.Point(180, 85);
-            this.nm_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nm_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.nm_fornecedor.Name = "nm_fornecedor";
             this.nm_fornecedor.Size = new System.Drawing.Size(740, 30);
             this.nm_fornecedor.TabIndex = 4;
@@ -493,7 +497,7 @@
             this.cd_fornecedor.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cd_fornecedor.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSource1, "cd_fornecedor", true));
             this.cd_fornecedor.Location = new System.Drawing.Point(180, 41);
-            this.cd_fornecedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cd_fornecedor.Margin = new System.Windows.Forms.Padding(4);
             this.cd_fornecedor.Name = "cd_fornecedor";
             this.cd_fornecedor.Size = new System.Drawing.Size(177, 30);
             this.cd_fornecedor.TabIndex = 2;
@@ -557,6 +561,22 @@
             // 
             this.tb_fornecedoresTableAdapter.ClearBeforeFill = true;
             // 
+            // impressaoDados_fornecedor
+            // 
+            this.impressaoDados_fornecedor.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.impressaoDados_fornecedor_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.impressaoDados_fornecedor;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
+            // 
             // cadastroFornecedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -574,7 +594,7 @@
             this.Controls.Add(this.btn_proximo);
             this.Controls.Add(this.btn_anterior);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "cadastroFornecedores";
             this.Text = "Cadastro de Fornecedores";
             this.Load += new System.EventHandler(this.cadastroFornecedores_Load);
@@ -632,5 +652,7 @@
         private ContasDataSet contasDataSet1;
         private System.Windows.Forms.BindingSource bindingSource1;
         private ContasDataSetTableAdapters.tb_fornecedoresTableAdapter tb_fornecedoresTableAdapter;
+        private System.Drawing.Printing.PrintDocument impressaoDados_fornecedor;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

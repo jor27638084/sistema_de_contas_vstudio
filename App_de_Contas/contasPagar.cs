@@ -117,5 +117,50 @@ namespace App_de_Contas
         {
             tb_contas_pagarBindingSource.MoveNext();
         }
+
+        private void btn_pesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void printPreviewDialog1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_fornecedoresBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dt_pagamento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imprassao_contaspagar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Graphics objtImpressao = e.Graphics;
+            string strDados;
+
+            strDados = "Conta Pendente" + (char)10 + (char)10;
+            objtImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Red, 50, 50);
+            objtImpressao.DrawLine(new System.Drawing.Pen(Brushes.Black), 50, 100, 780, 100);
+
+            strDados = "Código: " + cd_nota.Text + (char)10 + (char)10;
+            strDados = strDados + "Nº da Conta: " + nm_nota.Text + (char)10 + (char)10;
+            strDados = strDados + "Nome do Fornecedor: " + nm_fornecedor.Text + (char)10 + (char)10;
+            strDados = strDados + "Data de Emissão: " + dt_emissao.Text + (char)10 + (char)10;
+            strDados = strDados + "Data de Vencimento: " + dt_vencimento + (char)10 + (char)10;
+            strDados = strDados + "Valor da Nota: " + vl_nota.Text + (char)10 + (char)10;
+            strDados = strDados + "Data do Pagamento: " + dt_pagamento.Text + (char)10 + (char)10;
+
+            objtImpressao.DrawString(strDados, new System.Drawing.Font("Arial", 12, FontStyle.Bold), Brushes.Black, 50, 150);
+        }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.ShowDialog();
+        }
     }
 }
